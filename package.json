@@ -1,0 +1,25 @@
+{
+  "name": "com.archnet.library.enum",
+  "version": "1.0.0",
+  "displayName": "Arch Net Enum Image",
+  "description": "Enum Library is a link between an image livrary and enum.",
+  "unity": "2020.1",
+  "unityRelease": "0b5",
+  "keywords": [
+    "Arch",
+    "ArchNet",
+    "Library",
+    "Enum",
+    "Custom"
+  ],
+  "author": {
+    "name": "Arch Net",
+    "email": "archnetmodule@gmail.com"
+  },
+
+      "dependencies": {
+    "com.unity.editorcoroutines": "1.0.0",
+    "com.archnet.library.image": "1.0.0",
+    "com.archnet.library.color": "1.0.0"
+  }
+}
