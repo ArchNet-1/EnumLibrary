@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ArchNet.Library.EnumLibrary
+namespace ArchNet.Library.Enum
 {
     /// <summary>
     /// Description : Enum Library ( had a list of image and color model )

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using ArchNet.Library.ColorLibrary;
+using ArchNet.Library.Color;
 
 
-namespace ArchNet.Library.EnumLibrary
+namespace ArchNet.Library.Enum
 {
     /// <summary>
     /// Description : FeatureModel link to ColorLibrary

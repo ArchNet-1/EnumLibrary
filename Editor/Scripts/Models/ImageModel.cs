@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using ArchNet.Library.ImageLibrary;
-
-namespace ArchNet.Library.EnumLibrary
+﻿namespace ArchNet.Library.Enum
 {
     /// <summary>
     /// Description : FeatureModel link to ImageLibrary

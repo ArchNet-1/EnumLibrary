@@ -1,5 +1,5 @@
-﻿namespace ArchNet.Library.EnumLibrary
-{
+﻿namespace ArchNet.Library.Enum
+{ 
     [System.Serializable]
     public class FeatureModel
     {
