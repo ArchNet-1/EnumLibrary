@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-using ArchNet.Library.Color;
-
+﻿using ArchNet.Library.Color;
 
 namespace ArchNet.Library.Enum
 {
     /// <summary>
-    /// Description : FeatureModel link to ColorLibrary
-    /// @Author : Louis PAKEL
+    /// [LIBRARY] - [ARCH NET] - [ENUM] ColorLibrary model
+    /// author : LOUIS PAKEL
     /// </summary>
     [System.Serializable]
     public class ColorModel : FeatureModel

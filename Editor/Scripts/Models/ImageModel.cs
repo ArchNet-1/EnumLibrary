@@ -1,8 +1,10 @@
-﻿namespace ArchNet.Library.Enum
+﻿using ArchNet.Library.Image;
+
+namespace ArchNet.Library.Enum
 {
     /// <summary>
-    /// Description : FeatureModel link to ImageLibrary
-    /// @Author : Louis PAKEL
+    /// [LIBRARY] - [ARCH NET] - [ENUM] ImageLibrary model
+    /// author : LOUIS PAKEL
     /// </summary>
     [System.Serializable]
     public class ImageModel : FeatureModel

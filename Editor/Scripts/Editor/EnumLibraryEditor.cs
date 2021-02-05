@@ -3,8 +3,12 @@ using UnityEngine;
 using ArchNet.Library.Color;
 using ArchNet.Library.Image;
 
-namespace ArchNet.Library.EnumLibrary.Editor
+namespace ArchNet.Library.Enum.Editor
 {
+    /// <summary>
+    /// [LIBRARY] - [ARCH NET] - [ENUM] Library Enum Editor
+    /// author : LOUIS PAKEL
+    /// </summary>
     [CustomEditor(typeof(EnumLibrary))]
     public class EnumLibraryEditor : UnityEditor.Editor
     {
@@ -22,7 +26,7 @@ namespace ArchNet.Library.EnumLibrary.Editor
         private void OnEnable()
         {
             _warningInfos = new GUIStyle();
-            _warningInfos.normal.textColor = Color.red;
+            _warningInfos.normal.textColor = UnityEngine.Color.red;
             _warningInfos.fontStyle = FontStyle.Bold;
 
             _manager = target as EnumLibrary;

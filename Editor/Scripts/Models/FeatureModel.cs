@@ -1,5 +1,9 @@
 ﻿namespace ArchNet.Library.Enum
-{ 
+{
+    /// <summary>
+    /// [LIBRARY] - [ARCH NET] - [ENUM]  Base model
+    /// author : LOUIS PAKEL
+    /// </summary>
     [System.Serializable]
     public class FeatureModel
     {

@@ -1,7 +1,11 @@
 {
     "name": "ArchNet.EnumLibrary.Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:478a2357cc57436488a56e564b08d223",
+        "GUID:5bcffe0bff3b2cf4592794c5b1976cfa",
+        "GUID:e2c748859bda1c94cb85848a75f1711a"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

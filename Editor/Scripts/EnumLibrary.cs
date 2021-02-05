@@ -1,13 +1,17 @@
-﻿using System;
+﻿using ArchNet.Extension.Enum;
+using ArchNet.Library.Color;
+using ArchNet.Library.Image;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ArchNet.Library.Enum
 {
     /// <summary>
-    /// Description : Enum Library ( had a list of image and color model )
+    /// [LIBRARY] - [ARCH NET] - [ENUM] Library Enum ScriptableObject
+    /// author : LOUIS PAKEL
     /// </summary>
-    [CreateAssetMenu(fileName = "NewEnumLibrary", menuName = "CasualFantasy/EnumLibrary")]
+    [CreateAssetMenu(fileName = "NewEnumLibrary", menuName = "ArchNet/EnumLibrary")]
     public class EnumLibrary : ScriptableObject
     {
 
