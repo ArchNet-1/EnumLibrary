@@ -1,7 +1,7 @@
 {
   "name": "com.archnet.library.enum",
   "version": "1.0.0",
-  "displayName": "Arch Net Enum Library",
+  "displayName": "Arch Net Library Enum",
   "description": "Enum Library is a link between an image livrary and enum.",
   "unity": "2020.1",
   "unityRelease": "0b5",
