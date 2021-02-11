@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using ArchNet.Library.Color;
 using ArchNet.Library.Image;
+using System.Collections.Generic;
 
 namespace ArchNet.Library.Enum.Editor
 {
@@ -79,10 +80,6 @@ namespace ArchNet.Library.Enum.Editor
                 DisplayImageModels();
             }
 
-
-            //// Save Enum
-            //this.SaveEnumListIfNecessary();
-
             // Apply modifications
             serializedObject.ApplyModifiedProperties();
         }
@@ -135,14 +132,32 @@ namespace ArchNet.Library.Enum.Editor
             {
                 SerializedProperty lColorModel = _colorsModels.GetArrayElementAtIndex(i);
                 SerializedProperty lColorLibrary = lColorModel.FindPropertyRelative("_colorLibrary");
-                SerializedProperty lColorEnum = lColorModel.FindPropertyRelative("_enum");
 
                 lColorModel.isExpanded = EditorGUILayout.Foldout(lColorModel.isExpanded, new GUIContent("Color Model " + i));
                 if (lColorModel.isExpanded)
                 {
                     EditorGUILayout.BeginHorizontal();
                     lColorLibrary.objectReferenceValue = (ColorLibrary)EditorGUILayout.ObjectField(lColorLibrary.objectReferenceValue, typeof(ColorLibrary), false);
-                    lColorEnum.stringValue = EditorGUILayout.TextField(lColorEnum.stringValue);
+                    EditorGUILayout.EndHorizontal();
+                    if (lColorLibrary.objectReferenceValue != null)
+                    {
+                        ColorLibrary lColor = (ColorLibrary)lColorLibrary.objectReferenceValue;
+
+                        if(lColor.GetKeyType() == 1)
+                        {
+                            EditorGUILayout.BeginHorizontal();
+                            EditorGUILayout.LabelField("Enum Path");
+                            EditorGUILayout.LabelField(lColor.GetEnumType(lColor.GetEnumPath()).Name.ToString());
+                            EditorGUILayout.EndHorizontal();
+
+                            EditorGUILayout.BeginHorizontal();
+                            EditorGUILayout.LabelField("Max Value of the Library");
+                            EditorGUILayout.LabelField(lColor.GetMaxValue().ToString());
+                            EditorGUILayout.EndHorizontal();
+                        }
+
+                    }
+                    EditorGUILayout.BeginHorizontal();
 
                     if (GUILayout.Button("Delete"))
                     {

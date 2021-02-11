@@ -15,10 +15,11 @@ namespace ArchNet.Library.Enum
 
         #endregion
 
-        public ImageModel(string pEnum, ImageLibrary pImageLibrary)
+        public ImageModel(string pEnum, ImageLibrary pImageLibrary, int pMaxValue)
         {
             SetEnum(pEnum);
             SetImageLibrary(pImageLibrary);
+            SetMaxValue(pMaxValue);
         }
 
         #region Getter

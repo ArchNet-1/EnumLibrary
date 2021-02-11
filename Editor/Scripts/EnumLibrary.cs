@@ -1,5 +1,4 @@
-﻿using ArchNet.Extension.Enum;
-using ArchNet.Library.Color;
+﻿using ArchNet.Library.Color;
 using ArchNet.Library.Image;
 using System;
 using System.Collections.Generic;
@@ -26,6 +25,92 @@ namespace ArchNet.Library.Enum
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Description : Get Enums values from enum 
+        /// </summary>
+        /// <param name="enumName"></param>
+        /// <returns></returns>
+        public List<string> GetEnumKeys(string pEnum)
+        {
+            List<string> lResult = new List<string>();
+
+            Type type = GetEnumType(pEnum);
+            if (type != null)
+            {
+                lResult.AddRange(System.Enum.GetNames(type));
+            }
+
+            return lResult;
+        }
+
+
+        /// <summary>
+        /// Description : Get Enum type
+        /// </summary>
+        /// <param name="enumName"></param>
+        /// <returns></returns>
+        public Type GetEnumType(string pEnumName)
+        {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                var type = assembly.GetType(pEnumName);
+                if (type == null)
+                    continue;
+                if (type.IsEnum)
+                    return type;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Description : Get Index value from enum 
+        /// </summary>
+        /// <param name="pEnumType"></param>
+        /// <returns></returns>
+        public int GetEnumValue(Type pEnumType, string pKey)
+        {
+            int lResult = 0;
+
+            int[] lValues = (int[])System.Enum.GetValues(pEnumType);
+            string[] lKeys = System.Enum.GetNames(pEnumType);
+
+            for (int i = 0; i < lKeys.Length; i++)
+            {
+                if (lKeys[i] == pKey)
+                {
+                    lResult = lValues[i];
+                }
+            }
+
+            return lResult;
+        }
+
+        /// <summary>
+        /// Description : Get type from string
+        /// </summary>
+        /// <param name="pColorLibrary"></param>
+        /// <returns></returns>
+        public Type GetEnum(ColorModel pColorModel)
+        {
+            Type lResult = GetEnumType(pColorModel.GetEnum());
+
+            return lResult;
+        }
+
+
+        /// <summary>
+        /// Description : Get type from string
+        /// </summary>
+        /// <param name="pEnumName"></param>
+        /// <returns></returns>
+        public Type GetEnum(ImageModel pImageModel)
+        {
+            Type lResult = GetEnumType(pImageModel.GetEnum());
+
+            return lResult;
+        }
+
 
         /// <summary>
         /// Description : Get type from string
@@ -41,7 +126,7 @@ namespace ArchNet.Library.Enum
 
             ColorModel lColorModel = GetColorModel(pColorLibrary);
 
-            Type lResult = EnumExtension.GetEnumType(lColorModel.GetEnum());
+            Type lResult = GetEnumType(lColorModel.GetEnum());
 
             return lResult;
         }
@@ -62,7 +147,7 @@ namespace ArchNet.Library.Enum
 
             ImageModel lImageModel = GetImageModel(pImageLibrary);
 
-            Type lResult = EnumExtension.GetEnumType(lImageModel.GetEnum());
+            Type lResult = GetEnumType(lImageModel.GetEnum());
 
             return lResult;
         }
@@ -337,7 +422,7 @@ namespace ArchNet.Library.Enum
         /// </summary>
         public void AddColorModel()
         {
-           AddInList(new ColorModel("", null));
+           AddInList(new ColorModel("", null, 0));
         }
 
         /// <summary>
@@ -345,26 +430,8 @@ namespace ArchNet.Library.Enum
         /// </summary>
         public void AddImageModel()
         {
-            AddInList(new ImageModel("", null));
+            AddInList(new ImageModel("", null, 0));
         }
-
-        ///// <summary>
-        ///// Description : Save Library
-        ///// </summary>
-        //public void SaveLibrary()
-        //{
-        //    if (_colorsModels == null || _imageModels == null)
-        //    {
-        //        return;
-        //    }
-
-        //    if (_colorsModels.Count == 0 && _imageModels.Count == 0)
-        //    {
-        //        Debug.LogWarning("The enum List is empty");
-        //    }
-
-
-        //}
 
         #endregion
     }
