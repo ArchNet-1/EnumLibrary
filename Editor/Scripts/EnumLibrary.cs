@@ -25,6 +25,7 @@ namespace ArchNet.Library.Enum
         #endregion
 
         #region Public Methods
+
         /// <summary>
         /// Description : Get Enums values from enum 
         /// </summary>
@@ -200,7 +201,7 @@ namespace ArchNet.Library.Enum
         /// Description : return the color models list
         /// </summary>
         /// <returns></returns>
-        private List<ColorModel> GetColorModels()
+        public List<ColorModel> GetColorModels()
         {
             return _colorsModels;
         }
@@ -209,31 +210,9 @@ namespace ArchNet.Library.Enum
         /// Description : return the image models list
         /// </summary>
         /// <returns></returns>
-        private List<ImageModel> GetImageModels()
+        public List<ImageModel> GetImageModels()
         {
             return _imageModels;
-        }
-
-        #endregion
-
-        #region Setter
-
-        /// <summary>
-        /// Description : set the color models list
-        /// </summary>
-        /// <returns></returns>
-        private void SetColorModels(List<ColorModel> pColorModels)
-        {
-            _colorsModels = pColorModels;
-        }
-
-        /// <summary>
-        /// Description : set the image models list
-        /// </summary>
-        /// <returns></returns>
-        private void SetImageModels(List<ImageModel> pImageModels)
-        {
-            _imageModels = pImageModels;
         }
 
         #endregion

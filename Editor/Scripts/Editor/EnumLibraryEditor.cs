@@ -132,6 +132,7 @@ namespace ArchNet.Library.Enum.Editor
             {
                 SerializedProperty lColorModel = _colorsModels.GetArrayElementAtIndex(i);
                 SerializedProperty lColorLibrary = lColorModel.FindPropertyRelative("_colorLibrary");
+                SerializedProperty lColorEnum = lColorModel.FindPropertyRelative("_enum");
 
                 lColorModel.isExpanded = EditorGUILayout.Foldout(lColorModel.isExpanded, new GUIContent("Color Model " + i));
                 if (lColorModel.isExpanded)
@@ -148,14 +149,15 @@ namespace ArchNet.Library.Enum.Editor
                             EditorGUILayout.BeginHorizontal();
                             EditorGUILayout.LabelField("Enum Path");
                             EditorGUILayout.LabelField(lColor.GetEnumType(lColor.GetEnumPath()).Name.ToString());
-                            EditorGUILayout.EndHorizontal();
+                            _manager.GetColorModels()[i].SetEnum(lColor.GetEnumPath());
 
-                            EditorGUILayout.BeginHorizontal();
-                            EditorGUILayout.LabelField("Max Value of the Library");
-                            EditorGUILayout.LabelField(lColor.GetMaxValue().ToString());
                             EditorGUILayout.EndHorizontal();
                         }
 
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField("Max Value of the Library");
+                        EditorGUILayout.LabelField(lColor.GetMaxValue().ToString());
+                        EditorGUILayout.EndHorizontal();
                     }
                     EditorGUILayout.BeginHorizontal();
 
@@ -195,7 +197,29 @@ namespace ArchNet.Library.Enum.Editor
                 {
                     EditorGUILayout.BeginHorizontal();
                     lImageLibrary.objectReferenceValue = (ImageLibrary)EditorGUILayout.ObjectField(lImageLibrary.objectReferenceValue, typeof(ImageLibrary), false);
-                    lImageEnum.stringValue = EditorGUILayout.TextField(lImageEnum.stringValue);
+                    EditorGUILayout.EndHorizontal();
+
+                    if (lImageLibrary.objectReferenceValue != null)
+                    {
+                        ImageLibrary lImage = (ImageLibrary)lImageLibrary.objectReferenceValue;
+
+                        if (lImage.GetActualKeyType() == 1)
+                        {
+                            EditorGUILayout.BeginHorizontal();
+
+                            EditorGUILayout.LabelField("Enum Path");
+                            EditorGUILayout.LabelField(lImage.GetEnumType(lImage.GetEnumPath()).Name.ToString());
+                            _manager.GetImageModels()[i].SetEnum(lImage.GetEnumPath());
+
+                            EditorGUILayout.EndHorizontal();
+                        }
+
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField("Max Value of the Library");
+                        EditorGUILayout.LabelField(lImage.GetMaxValue().ToString());
+                        EditorGUILayout.EndHorizontal();
+                    }
+                    EditorGUILayout.BeginHorizontal();
 
                     if (GUILayout.Button("Delete"))
                     {
