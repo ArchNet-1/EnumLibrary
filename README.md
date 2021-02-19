@@ -48,6 +48,11 @@ That all folks !
 This a scriptable object who manage and store Libraries and Enums.
 EnumLibrary has only one purpose is to link libraries with enums and confirm datas.
 
+
+Use this library if you have :
+- ImageLibrary
+- ColorLibrary
+
 Get the github HTTPS project url and load it in Unity Package Manager windows
 
 in Unity : Windows -> Package Manager -> + -> Add package from git url
