@@ -1,4 +1,4 @@
-﻿using ArchNet.Library.Color;
+﻿using ArchNet.Library.Colors;
 
 namespace ArchNet.Library.Enum
 {

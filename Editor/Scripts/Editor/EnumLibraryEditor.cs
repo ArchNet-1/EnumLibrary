@@ -1,8 +1,7 @@
+using ArchNet.Library.Colors;
+using ArchNet.Library.Image;
 using UnityEditor;
 using UnityEngine;
-using ArchNet.Library.Color;
-using ArchNet.Library.Image;
-using System.Collections.Generic;
 
 namespace ArchNet.Library.Enum.Editor
 {
