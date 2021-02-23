@@ -3,7 +3,7 @@
 namespace ArchNet.Library.Enum
 {
     /// <summary>
-    /// [LIBRARY] - [ARCH NET] - [ENUM] ImageLibrary model
+    /// ImageLibrary model for enum library
     /// author : LOUIS PAKEL
     /// </summary>
     [System.Serializable]
@@ -15,11 +15,11 @@ namespace ArchNet.Library.Enum
 
         #endregion
 
-        public ImageModel(string pEnum, ImageLibrary pImageLibrary, int pMaxValue)
+        public ImageModel(string pEnum, ImageLibrary pImageLibrary, int pIndex)
         {
             SetEnum(pEnum);
             SetImageLibrary(pImageLibrary);
-            SetMaxValue(pMaxValue);
+            SetIndex(pIndex);
         }
 
         #region Getter

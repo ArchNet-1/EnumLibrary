@@ -15,6 +15,8 @@ namespace ArchNet.Library.Enum
     {
 
         #region SerializeField
+        // List of Image Model
+        [SerializeField] private List<string> _enums = new List<string>();
 
         // List of Image Model
         [SerializeField] private List<ImageModel> _imageModels = new List<ImageModel>();
@@ -25,6 +27,44 @@ namespace ArchNet.Library.Enum
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Description : Load all enums
+        /// </summary>
+        public void LoadAllEnums()
+        {
+            _enums = new List<string>();
+
+            foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies().Where(p => !p.IsDynamic))
+            {
+                if (ass == null)
+                {
+                    continue;
+                }
+
+                foreach (Type lType in ass.GetExportedTypes())
+                {
+                    if (lType == null)
+                    {
+                        continue;
+                    }
+
+                    if (lType.Namespace == null)
+                    {
+                        continue;
+                    }
+
+                    if (lType.Namespace.StartsWith("Views"))
+                    {
+                        if (true == lType.IsEnum)
+                        {
+                            _enums.Add(lType.Name);
+                        }
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Description : Get Enums values from enum 
@@ -52,16 +92,35 @@ namespace ArchNet.Library.Enum
         /// <returns></returns>
         public Type GetEnumType(string pEnumName)
         {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            Type lResult = null;
+
+            foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies().Where(p => !p.IsDynamic))
             {
-                var type = assembly.GetType(pEnumName);
-                if (type == null)
+                if (ass == null)
+                {
                     continue;
-                if (type.IsEnum)
-                    return type;
+                }
+
+                foreach (Type lType in ass.GetExportedTypes())
+                {
+                    if (lType == null)
+                    {
+                        continue;
+                    }
+
+                    if (lType.Namespace == null)
+                    {
+                        continue;
+                    }
+
+                    if (lType.Name == pEnumName)
+                    {
+                        lResult = lType;
+                    }
+                }
             }
 
-            return null;
+            return lResult;
         }
 
         /// <summary>
@@ -120,7 +179,7 @@ namespace ArchNet.Library.Enum
         /// <returns></returns>
         public Type GetEnum(ColorLibrary pColorLibrary)
         {
-            if(false == IsExist(pColorLibrary))
+            if (false == IsExist(pColorLibrary))
             {
                 return null;
             }
@@ -158,44 +217,34 @@ namespace ArchNet.Library.Enum
         /// </summary>
         /// <param name="pImageLibrary"></param>
         /// <returns></returns>
-        public string GetEnumName(ImageLibrary pImageLibrary)
+        public string GetEnumName(int pIndex)
         {
-            if (false == IsExist(pImageLibrary))
+            string lResult = "";
+
+            if (pIndex <= _enums.Count)
             {
-                return null;
+                lResult = _enums[pIndex];
             }
-
-            ImageModel lImageModel = GetImageModel(pImageLibrary);
-
-            string lResult = lImageModel.GetEnum();
 
             return lResult;
         }
 
-        /// <summary>
-        /// Description : return enum name
-        /// </summary>
-        /// <param name="pColorLibrary"></param>
-        /// <returns></returns>
-        public string GetEnumName(ColorLibrary pColorLibrary)
-        {
-            if (false == IsExist(pColorLibrary))
-            {
-                return null;
-            }
-
-            ColorModel lColorModel = GetColorModel(pColorLibrary);
-
-            string lResult = lColorModel.GetEnum();
-
-            return lResult;
-        }
 
         #endregion
 
         #region Private Methods
 
         #region Getter
+
+
+        /// <summary>
+        /// Description : Get all enums 
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetAllEnums()
+        {
+            return _enums;
+        }
 
         /// <summary>
         /// Description : return the color models list
@@ -316,7 +365,7 @@ namespace ArchNet.Library.Enum
         /// </summary>
         /// <param name="pColorLibrary"></param>
         /// <returns></returns>
-        private bool IsExist(ColorLibrary pColorLibrary)
+        public bool IsExist(ColorLibrary pColorLibrary)
         {
             bool lResult = false;
 
@@ -336,7 +385,7 @@ namespace ArchNet.Library.Enum
         /// </summary>
         /// <param name="pImageLibrary"></param>
         /// <returns></returns>
-        private bool IsExist(ImageLibrary pImageLibrary)
+        public bool IsExist(ImageLibrary pImageLibrary)
         {
             bool lResult = false;
 
@@ -360,9 +409,9 @@ namespace ArchNet.Library.Enum
         {
             bool lResult = false;
 
-            foreach(ImageModel lImageModel in GetImageModels())
+            foreach (ImageModel lImageModel in GetImageModels())
             {
-                if(lImageModel == pImageModel)
+                if (lImageModel == pImageModel)
                 {
                     lResult = true;
                 }
@@ -401,7 +450,7 @@ namespace ArchNet.Library.Enum
         /// </summary>
         public void AddColorModel()
         {
-           AddInList(new ColorModel("", null, 0));
+            AddInList(new ColorModel("", null, 0));
         }
 
         /// <summary>

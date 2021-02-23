@@ -14,11 +14,11 @@ namespace ArchNet.Library.Enum
         public ColorLibrary _colorLibrary;
 
         #endregion
-        public ColorModel(string pEnum, ColorLibrary pColorLibrary, int pMaxValue)
+        public ColorModel(string pEnum, ColorLibrary pColorLibrary, int pIndex)
         {
             SetEnum(pEnum);
             SetColorLibrary(pColorLibrary);
-            SetMaxValue(pMaxValue);
+            SetIndex(pIndex);
         }
 
         #region Getter

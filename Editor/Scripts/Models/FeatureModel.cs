@@ -10,9 +10,9 @@
         #region Fields
 
         // List of items
-        private string _enum;
+        private string _enum = "";
 
-        private int _maxValue;
+        public int _index = 0;
 
         #endregion
 
@@ -28,12 +28,12 @@
         }
 
         /// <summary>
-        /// Description : return the max value of the library
+        /// Description : return the enum index of the library
         /// </summary>
         /// <returns></returns>
-        public int GetMaxValue()
+        public int GetIndex()
         {
-            return _maxValue;
+            return _index;
         }
 
 
@@ -51,14 +51,15 @@
         }
 
         /// <summary>
-        /// Description : Set the max value of the library
+        /// Description : Set the enum index of the library
         /// </summary>
         /// <param name="pMaxValue"></param>
-        public void SetMaxValue(int pMaxValue)
+        public void SetIndex(int pIndex)
         {
-            _maxValue = pMaxValue;
+            _index = pIndex;
         }
 
         #endregion
     }
+}
 }
