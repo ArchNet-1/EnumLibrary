@@ -4,6 +4,7 @@
   "displayName": "ArchNet - Enum Library (deprecated)",
   "description": "Deprecated in 2.0.0: every ArchNet library now stores its own enum (see Library Core), so this registry is no longer needed. Contains no code.",
   "unity": "6000.0",
+  "license": "MIT",
   "documentationUrl": "https://archnet-plateform.fr/#EnumLibrary",
   "changelogUrl": "https://github.com/ArchNet-1/EnumLibrary/blob/master/CHANGELOG.md",
   "licensesUrl": "https://github.com/ArchNet-1/EnumLibrary/blob/master/LICENSE.md",

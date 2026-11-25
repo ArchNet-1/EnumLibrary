@@ -23,4 +23,4 @@ Nothing to use any more: set the enum directly on each library (**Key Type** = E
 
 ## License
 
-See [LICENSE.md](LICENSE.md).
+MIT, see [LICENSE.md](LICENSE.md).
