@@ -1,25 +1,20 @@
 {
   "name": "com.archnet.library.enum",
-  "version": "1.0.0",
-  "displayName": "Arch Net Library Enum",
-  "description": "Enum Library is a link between an image livrary and enum.",
-  "unity": "2020.1",
-  "unityRelease": "0b5",
+  "version": "2.0.0",
+  "displayName": "ArchNet - Enum Library (deprecated)",
+  "description": "Deprecated in 2.0.0: every ArchNet library now stores its own enum (see Library Core), so this registry is no longer needed. Contains no code.",
+  "unity": "6000.0",
+  "documentationUrl": "https://archnet-plateform.fr/#EnumLibrary",
+  "changelogUrl": "https://github.com/ArchNet-1/EnumLibrary/blob/master/CHANGELOG.md",
+  "licensesUrl": "https://github.com/ArchNet-1/EnumLibrary/blob/master/LICENSE.md",
   "keywords": [
-    "Arch",
-    "ArchNet",
-    "Library",
-    "Enum",
-    "Custom"
+    "archnet",
+    "library",
+    "enum"
   ],
   "author": {
-    "name": "Arch Net",
-    "email": "archnetmodule@gmail.com"
-  },
-
-      "dependencies": {
-    "com.unity.editorcoroutines": "1.0.0",
-    "com.archnet.library.image": "1.0.0",
-    "com.archnet.library.color": "1.0.0"
+    "name": "ArchNet",
+    "email": "archnetmodule@gmail.com",
+    "url": "https://archnet-plateform.fr"
   }
 }
